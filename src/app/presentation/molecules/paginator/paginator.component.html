@@ -1,0 +1,29 @@
+<div class="pagination-container grid grid-cols-3 mt-2">
+  <div class="results">
+    <p class="total-results">Mostrando {{ pageSize() }} de {{ totalItems() }} registros</p>
+    <p class="current-page">Página {{ currentPage() + 1 }} de {{ totalPages() }}</p>
+  </div>
+  <div class="page-buttons">
+    <button class="page-button" title="Inicio" (click)="handlePageChange(0)" [disabled]="currentPage() === 0">
+      <i class="fa-solid fa-angles-left"></i>
+    </button>
+    <button class="page-button" title="Anterior" (click)="handlePageChange(currentPage() - 1)" [disabled]="currentPage() === 0">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <button class="page-button" title="Siguiente" (click)="handlePageChange(currentPage() + 1)" [disabled]="currentPage() === totalPages() - 1">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+    <button class="page-button" title="Fin" (click)="handlePageChange(totalPages() - 1)" [disabled]="currentPage() === totalPages() - 1">
+      <i class="fa-solid fa-angles-right"></i>
+    </button>
+  </div>
+  <div class="pagination flex justify-end">
+    <select [formControl]="pageSizeControl">
+      @for (size of [5, 10, 20]; track $index) {
+        <option value="{{ size }}">
+          {{ size }}
+        </option>
+      }
+    </select>
+  </div>
+</div>

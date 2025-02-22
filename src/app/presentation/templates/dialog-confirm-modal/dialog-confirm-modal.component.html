@@ -1,14 +1,17 @@
-<app-modal-wrapper>
-  <div class="flex justify-center align-center">
-    <div class="card">
-      <div class="card-body">
-        <h2>{{ titleText() }}</h2>
-        <p>{{ message() }}</p>
-      </div>
-      <div class="flex justify-center gap-1">
-        <app-button (onClick)="handleConfirm(false)" color="tertiary">No</app-button>
-        <app-button (onClick)="handleConfirm(true)" color="accent">Si</app-button>
-      </div>
+<app-modal-wrapper [titleText]="titleText()">
+  <div class="flex flex-column">
+    <p class="text-center">{{ message() }}</p>
+    <div class="flex justify-center gap-1 mt-2">
+      @if (showCancel()) {
+        <app-button (onClick)="handleConfirm(false)" color="tertiary">
+          {{ cancelText() }}
+        </app-button>
+      }
+      @if (showConfirm()) {
+        <app-button (onClick)="handleConfirm(true)" color="accent">
+          {{ confirmText() }}
+        </app-button>
+      }
     </div>
   </div>
 </app-modal-wrapper>

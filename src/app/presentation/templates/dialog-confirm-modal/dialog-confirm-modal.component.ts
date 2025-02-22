@@ -17,12 +17,12 @@ export class DialogConfirmModalComponent {
 
   titleText = input('Confirmar acción');
   message = input('¿Estás seguro de que quieres realizar esta acción?');
+  showCancel = input(true);
+  showConfirm = input(true);
+  confirmText = input('Confirmar');
+  cancelText = input('Cancelar');
 
   readonly modalRef = inject(ModalRef);
-
-  handleClose() {
-    this.modalRef.close();
-  }
 
   handleConfirm(result: boolean) {
     this.modalRef.close(result);

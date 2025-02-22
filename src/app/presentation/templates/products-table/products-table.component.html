@@ -36,16 +36,4 @@
       }
     </tbody>
   </table>
-  <div class="footer">
-    <div class="results">{{ products().length }} Resultados</div>
-    <div class="pagination">
-      <select>
-        @for (size of [5, 10, 20]; track $index) {
-          <option value="{{ size }}">
-            {{ size }}
-          </option>
-        }
-      </select>
-    </div>
-  </div>
 </div>

@@ -8,7 +8,9 @@
     <app-text-input label="Fecha revisión" formControlName="date_revision" type="date"/>
   </div>
   <div class="flex justify-between mt-2">
-    <app-button (onClick)="handleClear()" color="tertiary">Limpiar</app-button>
-    <app-button (onClick)="handleSubmit()" color="accent" [disabled]="productForm.invalid">Crear</app-button>
+    <app-button (onClick)="handleClear()" color="tertiary">Cancelar</app-button>
+    <app-button (onClick)="handleSubmit()" color="accent" [disabled]="productForm.invalid">
+      {{ initialData() ? 'Actualizar' : 'Crear' }}
+    </app-button>
   </div>
 </form>

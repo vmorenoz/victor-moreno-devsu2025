@@ -7,11 +7,30 @@
 <div class="container">
   <div class="card mt-3">
     <div class="card-body">
-      <div class="flex justify-between align-center">
-        <app-text-input [formControl]="searchControl" placeholder="Search..."/>
-        <app-button (onClick)="createProduct()" color="accent">Agregar</app-button>
-      </div>
-      <app-products-table [products]="products()"/>
+      @if (productStore.isLoading()) {
+        <div class="flex justify-between align-center mb-3">
+          <app-skeleton width="15rem" height="40px"></app-skeleton>
+          <app-skeleton width="7rem" height="40px"></app-skeleton>
+        </div>
+        <app-skeleton width="100%" height="45px"></app-skeleton>
+        @for (item of [1,2,3,4,5]; track $index){
+          <div class="flex justify-between items-center gap-2 mt-2">
+            <app-skeleton width="12rem" height="1.2rem"></app-skeleton>
+            <app-skeleton width="12rem" height="1.2rem"></app-skeleton>
+            <app-skeleton width="8rem" height="1.2rem"></app-skeleton>
+            <app-skeleton width="8rem" height="1.2rem"></app-skeleton>
+            <app-skeleton width="2rem" height="2rem"></app-skeleton>
+          </div>
+        }
+      } @else {
+        <div class="flex justify-between align-center">
+          <app-text-input [formControl]="searchControl" placeholder="Buscar por nombre..."/>
+          <app-button (onClick)="createProduct()" color="accent">Agregar</app-button>
+        </div>
+        <app-products-table [products]="productStore.products()"/>
+        <app-paginator [totalItems]="productStore.allProducts().length"
+                       (onPage)="handlePageChange($event)"></app-paginator>
+      }
     </div>
   </div>
 </div>

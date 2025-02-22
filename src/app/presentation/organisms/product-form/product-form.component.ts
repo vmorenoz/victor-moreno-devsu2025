@@ -11,11 +11,11 @@ import {
   Validators
 } from '@angular/forms';
 import {catchError, distinctUntilChanged, filter, map, Observable, of, switchMap, timer} from 'rxjs';
-import {ProductService} from '@services/product.service';
 import {ButtonComponent} from '../../atoms/button/button.component';
 import {TextInputComponent} from '../../molecules/text-input/text-input.component';
 import {Product} from '../../../data/models/product.model';
 import {DatePipe} from '@angular/common';
+import {ProductStoreService} from '../../../data/stores/product-store.service';
 
 export interface ProductFormData {
   id?: FormControl<string | null>;
@@ -42,7 +42,7 @@ export interface ProductFormData {
 })
 export class ProductFormComponent implements OnInit {
   readonly formBuilder = inject(FormBuilder);
-  readonly productService = inject(ProductService);
+  readonly productStore = inject(ProductStoreService);
   readonly datePipe = inject(DatePipe);
 
   readonly initialData = input<Product | null>(null);
@@ -97,7 +97,14 @@ export class ProductFormComponent implements OnInit {
         disabled: true
       }, Validators.required),
     });
-
+    if (this.initialData()) {
+      this.productForm.patchValue({
+        ...this.initialData(),
+        date_release: this.datePipe.transform(this.initialData()?.date_release, 'yyyy-MM-dd'),
+        date_revision: this.datePipe.transform(this.initialData()?.date_revision, 'yyyy-MM-dd'),
+      });
+      this.productForm.controls.id?.disable();
+    }
     this.initFormListeners();
   }
 
@@ -126,7 +133,7 @@ export class ProductFormComponent implements OnInit {
 
       return timer(300).pipe(
         switchMap(() => {
-          return this.productService.verifyExistence(control.value).pipe(
+          return this.productStore.verifyExistence(control.value).pipe(
             map(response => {
               return response ? {duplicated: response} : null;
             }),

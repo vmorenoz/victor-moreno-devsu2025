@@ -12,7 +12,7 @@ export class ProductService {
   readonly httpClient = inject(HttpClient);
   readonly apiUrl = environment.apiUrl;
 
-  getProducts(): Observable<Product[]> {
+  loadProducts(): Observable<Product[]> {
     return this.httpClient.get<{ data: Product[] }>(`${this.apiUrl}/products`)
       .pipe(
         map(response => response.data),

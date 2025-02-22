@@ -1,0 +1,3 @@
+<app-modal-wrapper titleText="Formulario de Edición" (onClose)="handleClose()">
+  <app-product-form [initialData]="product()" (onSUbmit)="handleSubmit($event)" (onClear)="handleClose()"/>
+</app-modal-wrapper>

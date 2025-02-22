@@ -5,6 +5,8 @@ import {ModalService} from '@core/services/modal.service';
 import {ProductService} from '@services/product.service';
 import {DialogConfirmModalComponent} from '../dialog-confirm-modal/dialog-confirm-modal.component';
 import {MenuButtonComponent} from '../../atoms/menu-button/menu-button.component';
+import {EditProductModalComponent} from '../edit-product-modal/edit-product-modal.component';
+import {ProductStoreService} from '../../../data/stores/product-store.service';
 
 @Component({
   selector: 'app-products-table',
@@ -19,7 +21,7 @@ import {MenuButtonComponent} from '../../atoms/menu-button/menu-button.component
 export class ProductsTableComponent {
 
   readonly modalService = inject(ModalService);
-  readonly productService = inject(ProductService);
+  readonly productStore = inject(ProductStoreService);
 
   products = input<Product[]>([]);
 
@@ -31,12 +33,18 @@ export class ProductsTableComponent {
   handleMenuSelection(value: string, product: Product) {
     switch (value) {
       case 'edit':
-        alert('Editando producto');
+        this.handleEdit(product);
         break;
       case 'delete':
         this.handleDelete(product);
         break;
     }
+  }
+
+  handleEdit(product: Product) {
+    this.modalService.open(EditProductModalComponent, {
+      product
+    });
   }
 
   handleDelete(product: Product) {
@@ -46,15 +54,20 @@ export class ProductsTableComponent {
     });
 
     modalRef.afterClosed().subscribe(result => {
-      if(!result) return;
-
-
+      if (!result) return;
+      this.deleteProduct(product);
     });
   }
 
   private deleteProduct(product: Product) {
-    this.productService.deleteProduct(product.id).subscribe(response => {
-      console.log(response);
+    this.productStore.deleteProduct(product.id).subscribe(response => {
+      this.modalService.open(DialogConfirmModalComponent, {
+        titleText: 'Producto eliminado',
+        message: response.message,
+        showCancel: false,
+        showConfirm: true,
+        confirmText: 'Aceptar',
+      });
     });
   }
 }
