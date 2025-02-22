@@ -9,7 +9,7 @@ import {Component, input, output} from '@angular/core';
 })
 export class ModalWrapperComponent {
 
-  title = input('title');
+  titleText = input();
   onClose = output();
 
   closeModal() {

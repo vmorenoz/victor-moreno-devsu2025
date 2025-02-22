@@ -1,0 +1,65 @@
+.app-btn {
+  border: none;
+  padding: .7rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: small;
+  font-weight: bold;
+  font-family: var(--font-family), sans-serif;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: .25rem;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+
+  &:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+  }
+}
+
+.btn-default {
+  background-color: var(--white-color);
+  color: var(--black-color);
+
+  &:hover {
+    background-color: var(--white-color-hover);
+  }
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+
+  &:hover {
+    background-color: var(--primary-color-hover);
+  }
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: var(--white-color);
+
+  &:hover {
+    background-color: var(--secondary-color-hover);
+  }
+}
+
+.btn-tertiary {
+  background-color: var(--tertiary-color);
+  color: var(--black-color);
+
+  &:hover {
+    background-color: var(--tertiary-color-hover);
+  }
+}
+
+.btn-accent {
+  background-color: var(--accent-color);
+  color: var(--black-color);
+
+  &:hover {
+    background-color: var(--accent-color-hover);
+  }
+}

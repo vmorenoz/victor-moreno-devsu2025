@@ -1,4 +1,4 @@
-import {Injectable, Type, ViewContainerRef} from '@angular/core';
+import {Injectable, Injector, Type, ViewContainerRef} from '@angular/core';
 import {ModalRef} from '@core/classes/modal-ref';
 
 @Injectable({
@@ -16,16 +16,25 @@ export class ModalService {
 
   open<T>(component: Type<T>, data?: any): ModalRef<T> {
     if (!this.viewContainerRef) {
-      throw new Error('ModalService: No se ha configurado el contenedor de modales.');
+      throw new Error('No ViewContainerRef set! Asegúrate de llamarlo en el módulo o componente principal.');
     }
 
-    const componentRef = this.viewContainerRef.createComponent(component);
+    const modalRef = new ModalRef<T>();
+
+    const injector = Injector.create({
+      providers: [{provide: ModalRef, useValue: modalRef}],
+    });
+
+    const componentRef = this.viewContainerRef.createComponent(component, {
+      injector,
+    });
+
     if (data) {
-      Object.keys(data).forEach(key => {
-        componentRef.setInput(key, data[key]);
-      });
+      Object.keys(data).forEach(key => componentRef.setInput(key, data[key]));
     }
 
-    return new ModalRef<T>(componentRef);
+    modalRef.setComponentRef(componentRef);
+
+    return modalRef as ModalRef<T>;
   }
 }

@@ -1,0 +1,14 @@
+<app-modal-wrapper>
+  <div class="flex justify-center align-center">
+    <div class="card">
+      <div class="card-body">
+        <h2>{{ titleText() }}</h2>
+        <p>{{ message() }}</p>
+      </div>
+      <div class="flex justify-center gap-1">
+        <app-button (onClick)="handleConfirm(false)" color="tertiary">No</app-button>
+        <app-button (onClick)="handleConfirm(true)" color="accent">Si</app-button>
+      </div>
+    </div>
+  </div>
+</app-modal-wrapper>

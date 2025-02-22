@@ -1,0 +1,14 @@
+<form [formGroup]="productForm" autocomplete="off" novalidate>
+  <div class="grid grid-cols-2 gap-2">
+    <app-text-input label="ID" formControlName="id"/>
+    <app-text-input label="Nombre" formControlName="name"/>
+    <app-text-input label="Descripción" formControlName="description"/>
+    <app-text-input label="Logo" formControlName="logo"/>
+    <app-text-input label="Fecha liberación" formControlName="date_release" type="date"/>
+    <app-text-input label="Fecha revisión" formControlName="date_revision" type="date"/>
+  </div>
+  <div class="flex justify-between mt-2">
+    <app-button (onClick)="handleClear()" color="tertiary">Limpiar</app-button>
+    <app-button (onClick)="handleSubmit()" color="accent" [disabled]="productForm.invalid">Crear</app-button>
+  </div>
+</form>

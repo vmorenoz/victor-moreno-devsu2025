@@ -1,0 +1,51 @@
+<div class="table-container mt-2">
+  <table>
+    <thead>
+    <tr>
+      <th>Logo</th>
+      <th>Nombre del producto</th>
+      <th>Descripción <i class="fa-solid fa-circle-info"></i></th>
+      <th>Fecha de liberación <i class="fa-solid fa-circle-info"></i></th>
+      <th>Fecha de reestructuración <i class="fa-solid fa-circle-info"></i></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+      @for (product of products(); track $index) {
+        <tr>
+          <td>
+            <div class="logo">
+              <span>{{ product.id.substring(0, 2) }}</span>
+            </div>
+          </td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.date_release | date: 'dd/MM/yyyy' }}</td>
+          <td>{{ product.date_revision | date: 'dd/MM/yyyy' }}</td>
+          <td>
+            <app-menu-button [options]="options" (onSelect)="handleMenuSelection($event, product)">
+              <i dropdown-button class="fa-solid fa-ellipsis-vertical"></i>
+            </app-menu-button>
+          </td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="6">
+            <p class="text-center m-1">No hay productos para mostrar</p></td>
+        </tr>
+      }
+    </tbody>
+  </table>
+  <div class="footer">
+    <div class="results">{{ products().length }} Resultados</div>
+    <div class="pagination">
+      <select>
+        @for (size of [5, 10, 20]; track $index) {
+          <option value="{{ size }}">
+            {{ size }}
+          </option>
+        }
+      </select>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,87 @@
+.table-container {
+  background: var(--white-color);
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    thead {
+      background: #F9FAFC;
+
+      th {
+        text-align: left;
+        padding: 12px;
+        font-weight: 600;
+        color: #333;
+        border-bottom: 1px solid var(--secondary-color);
+
+        &:nth-child(3), &:nth-child(4) {
+          text-align: center;
+        }
+
+        i {
+          color: #949498;
+          margin-left: 0.5rem;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid var(--secondary-color);
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.05);
+        }
+
+        td {
+          padding: 12px;
+          color: var(--primary-color);
+          text-align: left;
+          font-weight: 400;
+
+          &:nth-child(3), &:nth-child(4) {
+            text-align: center;
+          }
+
+          .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #F5DF66;
+            color: var(--primary-color);
+            font-size: 16px;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 15px;
+
+    .results {
+      font-size: 14px;
+      color: var(--primary-color);
+    }
+
+    .pagination {
+      select {
+        width: 3.5rem;
+        text-align: center;
+        padding: 5px;
+        font-size: 14px;
+        border-radius: 4px;
+        border: 1px solid var(--gray-color);
+      }
+    }
+  }
+}

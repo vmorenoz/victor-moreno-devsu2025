@@ -7,3 +7,387 @@ html, body {
 * {
   font-family: "Outfit", serif;
 }
+
+/* Default styles */
+:root {
+  --primary-color: #3B4E7A;
+  --primary-color-hover: #2F3F5F;
+  --secondary-color: #A7B6D2;
+  --secondary-color-hover: #8C9EBA;
+  --tertiary-color: #F4F6F9;
+  --tertiary-color-hover: #E8EBF2;
+  --accent-color: #FFD700;
+  --accent-color-hover: #FFC400;
+  --light-color: #F9FAFC;
+  --light-color-hover: #F4F6F9;
+  --white-color: #FFFFFF;
+  --white-color-hover: #F9FAFC;
+  --black-color: #333333;
+  --gray-color: #6C757D;
+  --gray-color-hover: #495057;
+  --gray-color-light: #b3aeae;
+  --error-color: #f35a67;
+
+  --font-family: 'Outfit', sans-serif;
+}
+
+/* Reset the body */
+body {
+  font-family: Outfit, sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  background-color: var(--tertiary-color);
+  color: var(--black-color);
+}
+
+/* Material Icons */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+/* Container and Card */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.card {
+  background-color: var(--white-color);
+  border-radius: 8px;
+
+  .card-title {
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 1.5rem 2rem;
+    margin-bottom: .5rem;
+    border-bottom: 3px solid var(--tertiary-color-hover);
+  }
+
+  .card-body {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 60px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    padding: 0 80px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    padding: 0 100px;
+  }
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+
+  .col-span-1 {
+    grid-column: span 1 / span 1;
+  }
+
+  .col-span-2 {
+    grid-column: span 2 / span 2;
+  }
+
+  .col-span-3 {
+    grid-column: span 3 / span 3;
+  }
+
+  .col-span-4 {
+    grid-column: span 4 / span 4;
+  }
+
+  .col-span-5 {
+    grid-column: span 5 / span 5;
+  }
+
+  .col-span-6 {
+    grid-column: span 6 / span 6;
+  }
+
+  .col-span-7 {
+    grid-column: span 7 / span 7;
+  }
+
+  .col-span-8 {
+    grid-column: span 8 / span 8;
+  }
+
+  .col-span-9 {
+    grid-column: span 9 / span 9;
+  }
+
+  .col-span-10 {
+    grid-column: span 10 / span 10;
+  }
+
+  .col-span-11 {
+    grid-column: span 11 / span 11;
+  }
+
+  .col-span-12 {
+    grid-column: span 12 / span 12;
+  }
+}
+
+.gap-1 {
+  gap: .5rem 1rem;
+}
+
+.gap-2 {
+  gap: 1rem 2rem;
+}
+
+.gap-3 {
+  gap: 1.5rem 3rem;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-cols-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid-cols-6 {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.grid-cols-7 {
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.grid-cols-8 {
+  grid-template-columns: repeat(8, 1fr);
+}
+
+.grid-cols-9 {
+  grid-template-columns: repeat(9, 1fr);
+}
+
+.grid-cols-10 {
+  grid-template-columns: repeat(10, 1fr);
+}
+
+.grid-cols-11 {
+  grid-template-columns: repeat(11, 1fr);
+}
+
+.grid-cols-12 {
+  grid-template-columns: repeat(12, 1fr);
+}
+
+/* Spacing */
+.p-1 {
+  padding: .5rem;
+}
+
+.p-2 {
+  padding: 1rem;
+}
+
+.p-3 {
+  padding: 1.5rem;
+}
+
+.m-1 {
+  margin: .5rem;
+}
+
+.m-2 {
+  margin: 1rem;
+}
+
+.m-3 {
+  margin: 1.5rem;
+}
+
+.mt-1 {
+  margin-top: .5rem;
+}
+
+.mt-2 {
+  margin-top: 1rem;
+}
+
+.mt-3 {
+  margin-top: 1.5rem;
+}
+
+.mb-1 {
+  margin-bottom: .5rem;
+}
+
+.mb-2 {
+  margin-bottom: 1rem;
+}
+
+.mb-3 {
+  margin-bottom: 1.5rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* Aligns */
+.align-center {
+  text-align: center;
+}
+
+.align-start {
+  text-align: left;
+}
+
+.align-end {
+  text-align: right;
+}
+
+/* Displays */
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+/* Colors */
+.text-primary {
+  color: var(--primary-color);
+}
+
+/*** Backgrounds ***/
+
+.bg-primary {
+  background-color: var(--primary-color);
+}
+
+.bg-secondary {
+  background-color: var(--secondary-color);
+}
+
+.bg-tertiary {
+  background-color: var(--tertiary-color);
+}
+
+.bg-accent {
+  background-color: var(--accent-color);
+}
+
+.bg-light {
+  background-color: var(--light-color);
+}
+
+.bg-white {
+  background-color: var(--white-color);
+}
+
+.bg-black {
+  background-color: var(--black-color);
+}
+
+.bg-gray {
+  background-color: var(--gray-color);
+}
+
+.bg-gray-hover {
+  background-color: var(--gray-color-hover);
+}
+
+.bg-gray-light {
+  background-color: var(--gray-color-light);
+}
+
+.bg-error {
+  background-color: var(--error-color);
+}
+
+
+/*** Text Aligns ***/
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}

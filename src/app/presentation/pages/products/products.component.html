@@ -1,60 +1,17 @@
+<div class="flex justify-center bg-white">
+  <h1>
+    <i class="fa-solid fa-money-bills"></i>
+    BANCO
+  </h1>
+</div>
 <div class="container">
-  <div class="header">
-    <h1>
-      <i class="fa-solid fa-money-bills"></i>
-      BANCO
-    </h1>
-  </div>
-  <div class="content">
-    <div class="toolbar">
-      <input type="text" placeholder="Search..."/>
-      <button class="add-button" (click)="createProduct()">Agregar</button>
-    </div>
-    <div class="table-container">
-      <table>
-        <thead>
-        <tr>
-          <th>Logo</th>
-          <th>Nombre del producto</th>
-          <th>Descripción <i class="fa-solid fa-circle-info"></i></th>
-          <th>Fecha de liberación <i class="fa-solid fa-circle-info"></i></th>
-          <th>Fecha de reestructuración <i class="fa-solid fa-circle-info"></i></th>
-          <th></th> <!-- Espacio para opciones -->
-        </tr>
-        </thead>
-        <tbody>
-          @for (product of fakeProducts; track $index) {
-            <tr>
-              <td>
-                <div class="logo">
-                  <span>{{ product.initials }}</span>
-                </div>
-              </td>
-              <td>{{ product.name }}</td>
-              <td>{{ product.description }}</td>
-              <td>{{ product.releaseDate | date: 'dd/MM/yyyy' }}</td>
-              <td>{{ product.restructureDate | date: 'dd/MM/yyyy' }}</td>
-              <td>
-                <button class="options-button">
-                  <i class="fa-solid fa-ellipsis-vertical"></i>
-                </button>
-              </td>
-            </tr>
-          }
-        </tbody>
-      </table>
-      <div class="footer">
-        <div class="results">{{ fakeProducts.length }} Resultados</div>
-        <div class="pagination">
-          <select>
-            @for (size of [5, 10, 20]; track $index) {
-              <option value="{{ size }}">
-                {{ size }}
-              </option>
-            }
-          </select>
-        </div>
+  <div class="card mt-3">
+    <div class="card-body">
+      <div class="flex justify-between align-center">
+        <app-text-input [formControl]="searchControl" placeholder="Search..."/>
+        <app-button (onClick)="createProduct()" color="accent">Agregar</app-button>
       </div>
+      <app-products-table [products]="products()"/>
     </div>
   </div>
 </div>

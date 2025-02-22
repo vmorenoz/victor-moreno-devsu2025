@@ -1,0 +1,11 @@
+<div class="menu-container" #dropdownMenu>
+  <button class="menu-button" (click)="toggleDropdown()">
+    <ng-content select="[dropdown-button]"></ng-content>
+  </button>
+
+  <ul class="menu-dropdown" [class.show]="isOpen">
+    @for (option of options(); track $index) {
+      <li><a (click)="handleSelect(option.value)">{{ option.label }}</a></li>
+    }
+  </ul>
+</div>
