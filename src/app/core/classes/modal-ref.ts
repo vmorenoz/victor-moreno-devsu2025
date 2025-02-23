@@ -5,9 +5,6 @@ export class ModalRef<T> {
   private afterClosed$ = new Subject<any>();
   private componentRef!: ComponentRef<T>;
 
-  constructor() {
-  }
-
   close(result?: any) {
     this.componentRef?.destroy();
     this.afterClosed$.next(result);

@@ -59,7 +59,7 @@ export class ProductsTableComponent {
     });
   }
 
-  private deleteProduct(product: Product) {
+  deleteProduct(product: Product) {
     this.productStore.deleteProduct(product.id).subscribe(response => {
       this.modalService.open(DialogConfirmModalComponent, {
         titleText: 'Producto eliminado',
