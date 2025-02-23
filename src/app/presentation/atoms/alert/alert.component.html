@@ -1,0 +1,19 @@
+<div [class]="classes">
+  @if (icon()) {
+    <p class="alert-icon">
+      <i class="{{ icon() }}"></i>
+    </p>
+  }
+  <div class="alert-content">
+    @if (titleText()) {
+      <p class="alert-title">
+        {{ titleText() }}
+      </p>
+    }
+    @if (message()) {
+      <p class="alert-message">
+        {{ message() }}
+      </p>
+    }
+  </div>
+</div>

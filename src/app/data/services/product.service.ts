@@ -58,6 +58,7 @@ export class ProductService {
         `Backend returned code ${error.status}, ` +
         `body was: ${error.error}`);
     }
-    return throwError(() => new Error(error.message || 'Ocurrió un error inesperado'));
+    console.log(error);
+    return throwError(() => new Error(error.error.message || 'Ocurrió un error inesperado'));
   }
 }

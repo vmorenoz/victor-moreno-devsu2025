@@ -1,3 +1,6 @@
 <app-modal-wrapper titleText="Formulario de Registro" (onClose)="handleClose()">
+  @if (errorMessage()) {
+    <app-alert [message]="errorMessage()" type="error"/>
+  }
   <app-product-form (onSUbmit)="handleSubmit($event)" (onClear)="handleClose()"/>
 </app-modal-wrapper>

@@ -27,4 +27,8 @@ export class DialogConfirmModalComponent {
   handleConfirm(result: boolean) {
     this.modalRef.close(result);
   }
+
+  handleClose() {
+    this.modalRef.close(false);
+  }
 }
