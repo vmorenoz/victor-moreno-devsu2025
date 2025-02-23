@@ -1,59 +1,47 @@
-# DevsuChallenge2025
+## 🏆 Challenge - Frontend Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.8.
+Este proyecto es parte de un desafío técnico para evaluar habilidades en **Angular**. Se trata de una aplicación web que consume datos desde un backend y permite la interacción con una interfaz estructurada y dinámica.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Instalación y ejecución
 
+### 1 Clonar el repositorio
+```bash
+git clone https://github.com/vmorenoz/victor-moreno-devsu2025
+cd victor-moreno-devsu2025
+```
+
+### 2 Instalar dependencias
+Ejecuta el siguiente comando dentro del proyecto:
+```bash
+npm install
+```
+
+### 3 Ejecutar el proyecto en local
+Para iniciar la aplicación en modo desarrollo:
 ```bash
 ng serve
 ```
+Luego, accede a la aplicación en tu navegador en `http://localhost:4200/`.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+## 🧪 Pruebas
+Para ejecutar las pruebas unitarias con cobertura de código:
 ```bash
-ng generate component component-name
+ng test --code-coverage
 ```
+Esto generará un reporte de cobertura accesible en la carpeta `coverage/`.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## ⚠️ Ajustes en el backend
+Para ejecutar la aplicación correctamente en local, fue necesario realizar algunos ajustes en el **backend** proporcionado, específicamente para **solucionar problemas de CORS**.
 
-## Building
+Si encuentras errores relacionados con CORS al hacer peticiones a la API, asegúrate de permitir las solicitudes desde `http://localhost:4200` en la configuración del backend.
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+Si necesitas más detalles sobre la implementación, no dudes en preguntar. 🚀
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
